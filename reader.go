@@ -128,7 +128,7 @@ func (cfg *ReaderConfig) Verify() error {
 			return errors.New("xz: reader workers must be >= 1")
 		}
 		lzmaCfg = lzma.Reader2Config{
-			Workers:  1,
+			Workers:  cfg.Workers,
 			WorkSize: cfg.LZMAWorkSize,
 		}
 	}
