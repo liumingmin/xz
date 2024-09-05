@@ -133,9 +133,10 @@ func (p *streamWalkParser) Body() error {
 			return err
 		}
 	}
-	for range n {
-		record, n, err := readRecord(br)
-		indexLen += n
+
+	for i := 0; i < n; i++ {
+		record, rn, err := readRecord(br)
+		indexLen += rn
 		if err != nil {
 			if err == io.EOF {
 				err = io.ErrUnexpectedEOF
